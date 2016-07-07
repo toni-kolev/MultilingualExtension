@@ -1,2 +1,3 @@
-# MultilingualExtension
-Behat Multilingual Extensions
+## Author
+
+- [Toni Kolev](https://github.com/byKolev)
