@@ -8,3 +8,11 @@ php:
 
 env:
   - COMPOSER_OPTS=""
+  - COMPOSER_OPTS="--prefer-lowest"
+
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer update $COMPOSER_OPTS
+
+script:
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
