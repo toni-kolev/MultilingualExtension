@@ -2,7 +2,7 @@
   "name": "kolev/multilingual-extension",
   "type": "behat-extension",
   "description": "Behat extension for testing multilingual sites",
-  "keywords": ["drupal", "web", "test", "behat", "testing", "extension"],
+  "keywords": ["drupal", "web", "test", "behat", "testing", "extension", "multilingual", "multilanguage"],
   "license": "GNU",
   "authors": [{
     "name": "Toni Kolev",
