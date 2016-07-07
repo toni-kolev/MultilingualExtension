@@ -1,5 +1,7 @@
 <?php
 
+namespace Behat\MultilingualExtension\Context;
+
 use Behat\Behat\Context\Context;
 use Symfony\Component\Yaml\Yaml;
 use Drupal\DrupalExtension\Context\DrupalContext;
