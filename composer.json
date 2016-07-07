@@ -8,6 +8,9 @@
     "name": "Toni Kolev",
     "email": "kolev@toni-kolev.com"
   }],
+  "require": {
+    "behat/environment-loader": "1.*"
+  },
   "autoload": {
     "psr-4": {
       "kolev\\MultilingualExtension\\": "src/"

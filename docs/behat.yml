@@ -1,0 +1,8 @@
+profile:
+  suites:
+    default:
+      contexts: {}
+  extensions:
+    Behat\MultilingualExtension:
+      language: en
+      translations: translations.yml

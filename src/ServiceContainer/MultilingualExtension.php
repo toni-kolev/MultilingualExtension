@@ -2,7 +2,7 @@
 /**
  * @author Toni Kolev, <kolev@toni-kolev.com>
  */
-namespace Behat\SoapExtension\ServiceContainer;
+namespace Behat\MultilingualExtension\ServiceContainer;
 
 use Behat\EnvironmentLoader;
 use Behat\Testwork\ServiceContainer\Extension;
