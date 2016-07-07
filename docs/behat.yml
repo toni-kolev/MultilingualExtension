@@ -3,6 +3,6 @@ profile:
     default:
       contexts: {}
   extensions:
-    Behat\MultilingualExtension:
+    kolev\MultilingualExtension:
       language: en
       translations: translations.yml
