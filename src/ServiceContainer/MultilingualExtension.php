@@ -56,9 +56,7 @@ class MultilingualExtension implements Extension
         $config = $builder->children();
 
         foreach (['language', 'translations'] as $param) {
-            $config->arrayNode($param)
-                ->defaultValue([])
-                ->prototype('scalar')
+            $config->scalarNode($param)
                 ->end();
         }
 
