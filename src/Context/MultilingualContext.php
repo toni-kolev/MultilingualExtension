@@ -67,7 +67,7 @@ class MultilingualContext extends RawMultilingualContext {
         elseif (isset($this->translations[$target])) {
             return $target;
         }
-        else throw new Exception ("The text '$target'' is not defined in '$translations' translation file.");
+        else throw new \Exception ("The text '$target'' is not defined in '$translations' translation file.");
     }
 
     /**
