@@ -1,7 +1,10 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-class MoneyTest extends TestCase
+class MultilingualUnitTest extends TestCase
 {
-    echo "Everything is fine!"
+    public function testAllTheThings() {
+        echo "Everything is fine!";
+    }
 }
+?>
