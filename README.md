@@ -34,7 +34,7 @@ Note that it is in very early version so some features may not work properly.
 MultilingualExtension is easy to use. First you need to add the extension to your profile in `behat.yml` configuration file.
 
 ```
-profile:
+german_profile:
   suites:
     default:
       contexts: {}
@@ -42,7 +42,7 @@ profile:
     Behat\MinkExtension:
       files_path: %paths.base%/files
     kolev\MultilingualExtension:
-      language: en
+      language: de
       translations: translations.yml
 ```
 
@@ -52,10 +52,10 @@ The `translations` variable is used to define the path to the translations file.
 The `translations.yml` file structure is easy to read too.
 
 ```
-"word":
+"carrot":
   de: "German translation"
   fr: "French translation"
-"word2":
+"cabbage":
   de: "German translation"
   fr: "French translation"
 ```
@@ -64,6 +64,17 @@ The user can list as many words as he/she wants. Also many different languages f
 
 It is important to use the same language prefix in `translations.yml` file and when configuring the profile. For example define site's language as `de` and add translations with `de`. 
 
+Then it's time to write your test porperly in order to use the localized version of the string. For example:
+
+```
+Feature: Multilingual Extension example feature
+
+  Scenario: Example of a Scenario for testing multilingual extension
+    Given I go to "/"
+    And I should see localized "carrot"
+```
+
+In this case if your run the test with `german_profile` it will open the homepage and look for `de` version of the word `carrot` which in our case is `German translation`.
 
 ## Author
 
