@@ -19,14 +19,14 @@ class MultilingualContextInitializer implements ContextInitializer
      *
      * @var array
      */
-    private $parameters = [];
+    private $multilingual_parameters = [];
 
     /**
      * @param array $parameters
      */
     public function __construct(array $parameters)
     {
-        $this->parameters = $parameters;
+        $this->multilingual_parameters = $parameters;
     }
 
     /**

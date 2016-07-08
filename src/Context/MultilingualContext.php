@@ -29,7 +29,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
  * @github https://github.com/byKolev
  */
 
-class MultilingualContext extends RawMinkContext {
+class MultilingualContext extends RawMultilingualContext {
 
     /** @var FeatureContext */
     private $FeatureContext;
@@ -48,7 +48,6 @@ class MultilingualContext extends RawMinkContext {
     public $multilingual_params = array();
     // Parse YAML variables to PHP array
     public function __construct(array $parameters) {
-
         $this->multilingual_params = $parameters;
     }
 

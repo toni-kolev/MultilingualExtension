@@ -7,7 +7,7 @@ namespace kolev\MultilingualExtension\Context;
 /**
  * Class RawMultilingualContext.
  *
- * @package Behat\MultilingualExtension\Context
+ * @package kolev\MultilingualExtension\Context
  */
 class RawMultilingualContext implements MultilingualContextInterface
 {
@@ -17,15 +17,15 @@ class RawMultilingualContext implements MultilingualContextInterface
      *
      * @var array
      */
-    private $parameters = [];
+    private $multilingual_parameters = [];
 
     /**
      * {@inheritdoc}
      */
     public function setMultilingualParameters(array $parameters)
     {
-        if (empty($this->parameters)) {
-            $this->parameters = $parameters;
+        if (empty($this->multilingual_parameters)) {
+            $this->multilingual_parameters = $parameters;
         }
     }
 
@@ -37,7 +37,7 @@ class RawMultilingualContext implements MultilingualContextInterface
      */
     protected function getMultilingualParameter($name)
     {
-        return isset($this->parameters[$name]) ? $this->parameters[$name] : false;
+        return isset($this->multilingual_parameters[$name]) ? $this->multilingual_parameters[$name] : false;
     }
 
 }
