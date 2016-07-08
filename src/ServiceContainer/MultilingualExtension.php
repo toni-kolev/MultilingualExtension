@@ -2,7 +2,7 @@
 /**
  * @author Toni Kolev, <kolev@toni-kolev.com>
  */
-namespace Behat\MultilingualExtension\ServiceContainer;
+namespace kolev\MultilingualExtension\ServiceContainer;
 
 use Behat\EnvironmentLoader;
 use Behat\Testwork\ServiceContainer\Extension;

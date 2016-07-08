@@ -2,7 +2,7 @@
 /**
  * @author Toni Kolev, <kolev@toni-kolev.com>
  */
-namespace Behat\MultilingualExtension\Context;
+namespace kolev\MultilingualExtension\Context;
 
 use Behat\Behat\Context\Context;
 
