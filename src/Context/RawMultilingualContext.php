@@ -3,13 +3,14 @@
  * @author Toni Kolev, <kolev@toni-kolev.com>
  */
 namespace kolev\MultilingualExtension\Context;
+use Behat\MinkExtension\Context\RawMinkContext;
 
 /**
  * Class RawMultilingualContext.
  *
  * @package kolev\MultilingualExtension\Context
  */
-class RawMultilingualContext implements MultilingualContextInterface
+class RawMultilingualContext extends RawMinkContext implements MultilingualContextInterface
 {
 
     /**
@@ -17,7 +18,7 @@ class RawMultilingualContext implements MultilingualContextInterface
      *
      * @var array
      */
-    private $multilingual_parameters = [];
+    public $multilingual_parameters = [];
 
     /**
      * {@inheritdoc}

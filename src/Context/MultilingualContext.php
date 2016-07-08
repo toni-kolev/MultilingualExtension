@@ -56,13 +56,13 @@ class MultilingualContext extends RawMultilingualContext {
     public function parseTranslationFile() {
         $base_path = $this->getMinkParameter('files_path');
         $base_path = $base_path."/";
-        $file_path = $base_path.$this->multilingual_params['translations'];
+        $file_path = $base_path.$this->multilingual_parameters['translations'];
         $yaml = file_get_contents($file_path);
         $this->translations = Yaml::parse($yaml);
     }
 
     public function initializeMultilanguage() {
-        if(isset($this->multilingual_params['language'])&&isset($this->multilingual_params['translations'])) {
+        if(isset($this->multilingual_parameters['language'])&&isset($this->multilingual_parameters['translations'])) {
             $this->parseTranslationFile();
         }
     }
@@ -75,9 +75,9 @@ class MultilingualContext extends RawMultilingualContext {
      */
 
     public function localizeTarget($target) {
-        $translations = $this->multilingual_params['translations'];
-        if(isset($this->translations[$target][$this->multilingual_params['language']])){
-            $target = $this->translations[$target][$this->multilingual_params['language']];
+        $translations = $this->multilingual_parameters['translations'];
+        if(isset($this->translations[$target][$this->multilingual_parameters['language']])){
+            $target = $this->translations[$target][$this->multilingual_parameters['language']];
             return $target;
         }
         elseif (isset($this->translations[$target])) {
@@ -92,10 +92,11 @@ class MultilingualContext extends RawMultilingualContext {
 
     public function localizeField($field) {
         $re = "/(?:[-])(en)(?:[-])/";
-        $language = "-".$this->multilingual_params['language']."-";
+        $language = "-".$this->multilingual_parameters['language']."-";
         $field = preg_replace($re, $language,$field);
         return $field;
     }
+
 
     /**
      * Initialize the multilingual context a.k.a parses the YAML file translations into an array.
