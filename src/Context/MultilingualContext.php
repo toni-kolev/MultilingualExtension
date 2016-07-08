@@ -1,6 +1,6 @@
 <?php
 
-namespace Behat\MultilingualExtension\Context;
+namespace kolev\MultilingualExtension\Context;
 
 use Behat\Behat\Context\Context;
 use Symfony\Component\Yaml\Yaml;
