@@ -53,11 +53,11 @@ The `translations.yml` file structure is easy to read too.
 
 ```
 "carrot":
-  de: "German translation"
-  fr: "French translation"
+  de: "karrote"
+  fr: "carrote"
 "cabbage":
-  de: "German translation"
-  fr: "French translation"
+  de: "kohl"
+  fr: "chou"
 ```
 
 The user can list as many words as he/she wants. Also many different languages for each word can be added.
@@ -74,7 +74,7 @@ Feature: Multilingual Extension example feature
     And I should see localized "carrot"
 ```
 
-In this case if your run the test with `german_profile` it will open the homepage and look for `de` version of the word `carrot` which in our case is `German translation`.
+In this case if your run the test with `german_profile` it will open the homepage and look for `de` version of the word `carrot` which in our case is `karrote`.
 
 ## Author
 
