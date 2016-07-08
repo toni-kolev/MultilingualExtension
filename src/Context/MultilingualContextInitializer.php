@@ -35,7 +35,7 @@ class MultilingualContextInitializer implements ContextInitializer
     public function initializeContext(Context $context)
     {
         if ($context instanceof MultilingualContextInterface) {
-            $context->setMultilingualParameters($this->parameters);
+            $context->setMultilingualParameters($this->multilingual_parameters);
         }
     }
 }

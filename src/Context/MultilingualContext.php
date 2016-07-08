@@ -45,11 +45,7 @@ class MultilingualContext extends RawMultilingualContext {
     }
 
     // Declaring params array for storing variables from YAML profile.
-    public $multilingual_params = array();
-    // Parse YAML variables to PHP array
-    public function __construct(array $parameters) {
-        $this->multilingual_params = $parameters;
-    }
+    //public $multilingual_params = array();
 
     /** Multilanguage implementation */
 
