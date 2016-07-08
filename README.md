@@ -3,6 +3,8 @@
 MultilingualExtension is a Behat extension designed to ease the work with multilingual sites. English language is used as a base and translations for each string are stored in a user defined file.
 The main idea is to write your tests in English language and then run them against sites with different language than English. The website language is defined in YML profile.
 
+Note that it is in very early version so some features may not work properly.
+
 [![Build Status](https://travis-ci.org/byKolev/MultilingualExtension.svg?branch=master)](https://travis-ci.org/byKolev/MultilingualExtension)
 [![Total Downloads](https://poser.pugx.org/kolev/multilingual-extension/downloads)](https://packagist.org/packages/behat/soap-extension)
 ## Installation
@@ -42,6 +44,22 @@ profile:
 
 The `language` variable is used to define the website's default language.
 The `translations` variable is used to define the path to the translations file. The path is relative to the `files_path` variable. So in this case the `translations.yml` file should be placed in `/files` folder.
+
+The `translations.yml` file structure is easy to read too.
+
+```
+"word":
+  de: "German translation"
+  fr: "French translation"
+"word2":
+  de: "German translation"
+  fr: "French translation"
+```
+
+The user can list as many words as he/she wants. Also many different languages for each word can be added.
+
+It is important to use the same language prefix in `translations.yml` file and when configuring the profile. For example define site's language as `de` and add translations with `de`. 
+
 
 ## Author
 

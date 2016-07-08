@@ -3,6 +3,8 @@ profile:
     default:
       contexts: {}
   extensions:
+    Behat\MinkExtension:
+      files_path: %paths.base%/files
     kolev\MultilingualExtension:
       language: en
       translations: translations.yml
