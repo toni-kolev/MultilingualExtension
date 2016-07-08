@@ -9,7 +9,8 @@
     "email": "kolev@toni-kolev.com"
   }],
   "require": {
-    "behat/environment-loader": "1.*"
+    "behat/environment-loader": "1.*",
+    "behat/mink-extension": "~2.0"
   },
   "autoload": {
     "psr-4": {
