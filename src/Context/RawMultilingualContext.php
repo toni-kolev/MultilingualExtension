@@ -41,4 +41,22 @@ class RawMultilingualContext extends RawMinkContext implements MultilingualConte
         return isset($this->multilingual_parameters[$name]) ? $this->multilingual_parameters[$name] : false;
     }
 
+    /**
+     *  RAW definitions of simple functions to  be used in MultilingualContext
+     */
+
+    public function iClickOnTheText($text) {
+
+        $session = $this->getSession();
+        $element = $session->getPage()->find(
+            'xpath',
+            $session->getSelectorsHandler()->selectorToXpath('xpath', '//*[contains(text(),"' . $text . '")]'));
+
+        if (null === $element) {
+            throw new \InvalidArgumentException(sprintf('Cannot find text: "%s"', $text));
+        }
+
+        $element->click();
+    }
+
 }

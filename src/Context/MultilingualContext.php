@@ -31,22 +31,6 @@ use Behat\MinkExtension\Context\RawMinkContext;
 
 class MultilingualContext extends RawMultilingualContext {
 
-    /** @var FeatureContext */
-    private $FeatureContext;
-
-    /**
-     * Load another contexts in order to use their functions (step definitions).
-     * @BeforeScenario
-     */
-    public function loadAnotherContext(BeforeScenarioScope $scope) {
-        $environment = $scope->getEnvironment();
-
-        $this->FeatureContext = $environment->getContext('FeatureContext');
-    }
-
-    // Declaring params array for storing variables from YAML profile.
-    //public $multilingual_params = array();
-
     /** Multilanguage implementation */
 
     // Declaring translations variable to store all translations
@@ -141,7 +125,7 @@ class MultilingualContext extends RawMultilingualContext {
 
     public function iClickOnTheLocalizedText($target) {
         $target = $this->localizeTarget($target);
-        $this->FeatureContext->iClickOnTheText($target);
+        $this->iClickOnTheText($target);
     }
 
     /**
