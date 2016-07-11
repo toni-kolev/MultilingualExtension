@@ -19,7 +19,7 @@ Note that it is in very early version so some features may not work properly.
 ```
 {
   "require": {
-    kolev/multilingual-extension": "dev-master"
+    "kolev/multilingual-extension": "dev-master"
   },
   "config": {
     "bin-dir": "bin"
