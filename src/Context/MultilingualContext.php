@@ -42,7 +42,10 @@ class MultilingualContext extends RawMultilingualContext {
         $base_path = $base_path."/";
         $file_path = $base_path.$this->multilingual_parameters['translations'];
         $yaml = file_get_contents($file_path);
-        $this->translations = Yaml::parse($yaml);
+        $yaml_parse_array_check = Yaml::parse($yaml);
+        if(is_array($yaml_parse_array_check)) {
+            $this->translations = $yaml_parse_array_check;
+        }
     }
 
     public function initializeMultilanguage() {
