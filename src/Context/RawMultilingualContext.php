@@ -66,8 +66,6 @@ class RawMultilingualContext extends RawMinkContext implements MultilingualConte
         }
         $session = $this->getSession();
         $element = $session->getPage()->find('css', $input);
-        $text = "";
-
         if(isset($element)) {
             $text = $element->getValue();
         }
@@ -132,7 +130,6 @@ class RawMultilingualContext extends RawMinkContext implements MultilingualConte
         $session = $this->getSession();
         $element = $session->getPage()->find('region', $region)->find('xpath', $session->getSelectorsHandler()->selectorToXpath('xpath',
             '//*[contains(text(),"' . $text . '")]'));
-
         if (null === $element) {
             throw new \InvalidArgumentException(sprintf('Cannot find text: "%s"', $text));
         }
