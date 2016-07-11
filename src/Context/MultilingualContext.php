@@ -136,7 +136,7 @@ class MultilingualContext extends RawMultilingualContext {
 
     public function iShouldSeeLocalizedValueInInput($value, $input) {
         $value = $this->localizeTarget($value);
-        $this->FeatureContext->assertValueInInput($value, $input);
+        $this->assertValueInInput($value, $input);
     }
 
     /**
@@ -168,7 +168,7 @@ class MultilingualContext extends RawMultilingualContext {
      */
     public function iWaitForLocalizedTextToAppearWithMaxTime($target, $maxExecutionTime){
         $target = $this->localizeTarget($target);
-        $this->FeatureContext->iWaitForTextToAppearWithMaxTime($target, $maxExecutionTime);
+        $this->iWaitForTextToAppearWithMaxTime($target, $maxExecutionTime);
     }
 
     /**
@@ -221,7 +221,7 @@ class MultilingualContext extends RawMultilingualContext {
      */
     public function iClickOnTheLocalizedTextInRegion($text, $region){
         $text = $this->localizeTarget($text);
-        $this->FeatureContext->iClickOnTheTextInRegion($text, $region);
+        $this->iClickOnTheTextInRegion($text, $region);
     }
 
     /**
@@ -231,7 +231,7 @@ class MultilingualContext extends RawMultilingualContext {
      */
     public function lselectLocalizedOptionWithJavascript($selector, $option) {
         $localizedOption = $this->localizeTarget($option);
-        $this->FeatureContext->selectOptionWithJavascript($selector, $localizedOption);
+        $this->selectOptionWithJavascript($selector, $localizedOption);
     }
 
     /**
@@ -241,6 +241,6 @@ class MultilingualContext extends RawMultilingualContext {
      */
     public function assertSelectLocalizedRadioById($label, $id = '') {
         $label = $this->localizeTarget($label);
-        $this->FeatureContext->assertSelectRadioById($label, $id);
+        $this->assertSelectRadioById($label, $id);
     }
 }
