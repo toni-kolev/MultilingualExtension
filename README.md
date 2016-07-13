@@ -1,5 +1,9 @@
 # Behat MutlilingualExtension
 
+### Write tests once, test on multiple languages
+ 
+Behat extension to help you do less work when you have multilanguage environment.
+
 MultilingualExtension is a Behat extension designed to ease the work with multilingual sites. English language is used as a base and translations for each string are stored in a user defined file.
 The main idea is to write your tests in English language and then run them against sites with different language than English. The website language is defined in YML profile.
 
@@ -75,6 +79,8 @@ Feature: Multilingual Extension example feature
 ```
 
 In this case if your run the test with `german_profile` it will open the homepage and look for `de` version of the word `carrot` which in our case is `karrote`.
+
+## FAQ
 
 ## Author
 
