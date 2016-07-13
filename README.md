@@ -86,6 +86,10 @@ In this case if your run the test with `german_profile` it will open the homepag
 
 Language detection based on URL is introduced with version `0.0.2`. The extension tries to detect site's language based on URL. For example if you go to page http://example.com/de/ it will look for German translation of the string, if no language code found it will use the `default_language`. It works for both clean and non-clean URLs.
 
+##### What are the availabe languages supported?
+
+List of all languages ISO codes can be found [here](docs/IsoLangaugeCodes.json).
+
 ## Author
 
 - [Toni Kolev](https://github.com/byKolev)
