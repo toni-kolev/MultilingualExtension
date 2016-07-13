@@ -36,6 +36,9 @@ class MultilingualContext extends RawMultilingualContext {
     // Declaring translations variable to store all translations
     public $translations = array();
 
+    public $languages_iso_codes = array();
+
+
     // Parse the YAML translations to PHP array variable
     public function parseTranslationFile() {
         $base_path = $this->getMinkParameter('files_path');
@@ -49,9 +52,40 @@ class MultilingualContext extends RawMultilingualContext {
     }
 
     public function initializeMultilanguage() {
-        if(isset($this->multilingual_parameters['language'])&&isset($this->multilingual_parameters['translations'])) {
+        if(isset($this->multilingual_parameters['translations'])) {
             $this->parseTranslationFile();
         }
+        $this->parseLanguageCodes();
+    }
+
+    /*
+     * This function parses the languages_iso_codes.json file to an array
+     */
+
+    public function parseLanguageCodes() {
+        $languages_iso_codes_string = file_get_contents("vendor/kolev/multilingual-extension/src/Resources/languages_iso_codes.json");
+        $this->languages_iso_codes = json_decode($languages_iso_codes_string, true);
+    }
+
+    /*
+     * This function detects site's language based on URL. If no URL language is detected
+     * the default_language is used.
+     */
+
+    public function languageDetection() {
+        $current_url = $this->getSession()->getCurrentUrl();
+        $base_url = $this->getMinkParameter('base_url');
+        $base_url_length = strlen($base_url);
+        $clean_url_language_code = substr($current_url,$base_url_length,2);
+        $not_clean_url_language_code = substr($current_url,$base_url_length+3,2);
+
+        if(in_array($clean_url_language_code,$this->languages_iso_codes)) {
+            return $clean_url_language_code;
+        }
+        else if (in_array($not_clean_url_language_code,$this->languages_iso_codes)){
+            return $not_clean_url_language_code;
+        }
+        else return $this->multilingual_parameters['default_language'];
     }
 
     /**
@@ -63,8 +97,8 @@ class MultilingualContext extends RawMultilingualContext {
 
     public function localizeTarget($target) {
         $translations = $this->multilingual_parameters['translations'];
-        if(isset($this->translations[$target][$this->multilingual_parameters['language']])){
-            $target = $this->translations[$target][$this->multilingual_parameters['language']];
+        if(isset($this->translations[$target][$this->multilingual_parameters['default_language']])){
+            $target = $this->translations[$target][$this->languageDetection()];
             return $target;
         }
         elseif (isset($this->translations[$target])) {
@@ -78,8 +112,8 @@ class MultilingualContext extends RawMultilingualContext {
      */
 
     public function localizeField($field) {
-        $re = "/(?:[-])(en)(?:[-])/";
-        $language = "-".$this->multilingual_parameters['language']."-";
+        $re = "/(?:[-])(".$this->multilingual_parameters['default_language'].")(?:[-])/";
+        $language = "-".$this->languageDetection()."-";
         $field = preg_replace($re, $language,$field);
         return $field;
     }
