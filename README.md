@@ -88,7 +88,7 @@ Language detection based on URL is introduced with version `0.0.2`. The extensio
 
 ##### What are the availabe languages supported?
 
-List of all languages ISO codes can be found [here](docs/IsoLangaugeCodes.json).
+List of all languages ISO codes can be found [here](docs/IsoLanguageCodes.json) 
 
 ## Author
 
