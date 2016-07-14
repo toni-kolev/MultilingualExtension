@@ -33,13 +33,14 @@ class MultilingualContext extends RawMultilingualContext {
 
     /** Multilanguage implementation */
 
-    // Declaring translations variable to store all translations
+    // Declaring translations variable to store all translations.
     public $translations = array();
 
+    // Declaring languages_iso_codes variable to store all languages ISO codes from json file.
     public $languages_iso_codes = array();
 
 
-    // Parse the YAML translations to PHP array variable
+    // Parse the YAML translations to PHP array variable.
     public function parseTranslationFile() {
         $base_path = $this->getMinkParameter('files_path');
         $base_path = $base_path."/";
@@ -51,6 +52,7 @@ class MultilingualContext extends RawMultilingualContext {
         }
     }
 
+    // Checks whether the translations file variable is set in the Behat profile and parses it to array.
     public function initializeMultilanguage() {
         if(isset($this->multilingual_parameters['translations'])) {
             $this->parseTranslationFile();
@@ -58,10 +60,7 @@ class MultilingualContext extends RawMultilingualContext {
         $this->parseLanguageCodes();
     }
 
-    /*
-     * This function parses the languages_iso_codes.json file to an array
-     */
-
+    //This function parses the languages_iso_codes.json file to an array.
     public function parseLanguageCodes() {
         $languages_iso_codes_string = file_get_contents("vendor/kolev/multilingual-extension/src/Resources/languages_iso_codes.json");
         $this->languages_iso_codes = json_decode($languages_iso_codes_string, true);
@@ -75,14 +74,18 @@ class MultilingualContext extends RawMultilingualContext {
     public function languageDetection() {
         $current_url = $this->getSession()->getCurrentUrl();
         $base_url = $this->getMinkParameter('base_url');
+        // Checks whether the last symbol in the base_url is /, if not it adds it
+        if (substr($base_url, -1) != "/") {
+            $base_url = $base_url."/";
+        }
         $base_url_length = strlen($base_url);
+        //Get the 2 symbols in current URL after the base_url when Clean URLs is enabled
         $clean_url_language_code = substr($current_url,$base_url_length,2);
         $not_clean_url_language_code = substr($current_url,$base_url_length+3,2);
-
-        if(in_array($clean_url_language_code,$this->languages_iso_codes)) {
+        if(in_array($clean_url_language_code,$this->languages_iso_codes) && substr($current_url,$base_url_length+2,1) == "/") {
             return $clean_url_language_code;
         }
-        else if (in_array($not_clean_url_language_code,$this->languages_iso_codes)){
+        else if (in_array($not_clean_url_language_code,$this->languages_iso_codes) && substr($current_url,$base_url_length+5,1) == "/"){
             return $not_clean_url_language_code;
         }
         else return $this->multilingual_parameters['default_language'];
@@ -108,7 +111,7 @@ class MultilingualContext extends RawMultilingualContext {
     }
 
     /**
-     * This function localizes the field based on Drupal standards. English language is used as a base.
+     * This function localizes the field based on Drupal standards. default_language variable is used as a base.
      */
 
     public function localizeField($field) {
@@ -120,7 +123,7 @@ class MultilingualContext extends RawMultilingualContext {
 
 
     /**
-     * Initialize the multilingual context a.k.a parses the YAML file translations into an array.
+     * Initialize the multilingual context before the scenario.
      * @BeforeScenario
      * @Given /^I initialize multilingual context/
      */
