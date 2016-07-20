@@ -3,4 +3,5 @@ sudo: false
 
 php:
   - '7'
+  - '5.6'
 script: phpunit tests/test.php
