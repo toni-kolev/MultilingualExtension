@@ -9,7 +9,7 @@ The main idea is to write your tests in English language and then run them again
 
 Note that it is in very early version so some features may not work properly.
 
-[![Latest Stable Version](https://poser.pugx.org/kolev/multilingual-extension/v/stable)](https://packagist.org/packages/behat/soap-extension)
+[![Latest Stable Version](https://poser.pugx.org/kolev/multilingual-extension/v/stable)](https://packagist.org/packages/kolev/multilingual-extension)
 [![License](https://poser.pugx.org/kolev/multilingual-extension/license)](https://packagist.org/packages/kolev/multilingual-extension)
 [![Coverage Status](https://scrutinizer-ci.com/g/byKolev/MultilingualExtension/badges/build.png?b=master)](https://scrutinizer-ci.com/g/byKolev/MultilingualExtension/build-status/master)
 [![Quality Score](https://img.shields.io/scrutinizer/g/byKolev/MultilingualExtension.svg?style=flat)](https://scrutinizer-ci.com/g/byKolev/MultilingualExtension)
