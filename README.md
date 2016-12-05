@@ -13,7 +13,7 @@ Note that it is in very early version so some features may not work properly.
 [![License](https://poser.pugx.org/kolev/multilingual-extension/license)](https://packagist.org/packages/kolev/multilingual-extension)
 [![Coverage Status](https://scrutinizer-ci.com/g/byKolev/MultilingualExtension/badges/build.png?b=master)](https://scrutinizer-ci.com/g/byKolev/MultilingualExtension/build-status/master)
 [![Quality Score](https://img.shields.io/scrutinizer/g/byKolev/MultilingualExtension.svg?style=flat)](https://scrutinizer-ci.com/g/byKolev/MultilingualExtension)
-[![Build Status](https://travis-ci.org/byKolev/MultilingualExtension.svg?branch=master)](https://travis-ci.org/byKolev/MultilingualExtension)
+[![Build Status](https://travis-ci.org/toni-kolev/MultilingualExtension.svg?branch=master)](https://travis-ci.org/toni-kolev/MultilingualExtension)
 [![Total Downloads](https://poser.pugx.org/kolev/multilingual-extension/downloads)](https://packagist.org/packages/behat/soap-extension)
 ## Installation
 
