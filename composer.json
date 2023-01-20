@@ -3,7 +3,7 @@
   "type": "behat-extension",
   "description": "Behat extension for testing multilingual sites",
   "keywords": ["drupal", "web", "test", "behat", "testing", "extension", "multilingual", "multilanguage"],
-  "license": "GNU",
+  "license": "MIT",
   "authors": [{
     "name": "Toni Kolev",
     "email": "kolev@toni-kolev.com"
