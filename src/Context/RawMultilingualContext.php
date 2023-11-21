@@ -137,10 +137,10 @@ class RawMultilingualContext extends RawMinkContext implements MultilingualConte
         $element->click();
     }
 
-    public function selectOptionWithJavascript($text, $region) {
+    public function selectOptionWithJavascript($text, $cssLocator) {
 
         $session = $this->getSession();
-        $element = $session->getPage()->find('region', $region)->find('xpath', $session->getSelectorsHandler()->selectorToXpath('xpath',
+        $element = $session->getPage()->find('css', $cssLocator)->find('xpath', $session->getSelectorsHandler()->selectorToXpath('xpath',
             '//*[contains(text(),"' . $text . '")]'));
 
         if (null === $element) {

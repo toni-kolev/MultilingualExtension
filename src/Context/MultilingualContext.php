@@ -271,7 +271,7 @@ class MultilingualContext extends RawMultilingualContext {
      */
     public function lselectLocalizedOptionWithJavascript($selector, $option) {
         $localizedOption = $this->localizeTarget($option);
-        $this->selectOptionWithJavascript($selector, $localizedOption);
+        $this->selectOptionWithJavascript($localizedOption, $selector);
     }
 
     /**
