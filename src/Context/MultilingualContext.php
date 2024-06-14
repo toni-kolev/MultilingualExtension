@@ -234,8 +234,8 @@ class MultilingualContext extends RawMultilingualContext {
      * Fills in form field with specified css selector with localized value
      * Example: When I fill in "#username" with localized "bwayne"
      *
-     * @When /^(?:|I )fill in :field with localized :value$/
-     * @throws Exception
+     * @When    I fill in :field with localized :value
+     * @throws  Exception
      */
     public function fillFieldWithLocalized($field, $value)
     {
