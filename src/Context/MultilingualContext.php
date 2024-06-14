@@ -3,6 +3,7 @@
 namespace kolev\MultilingualExtension\Context;
 
 use Behat\Behat\Context\Context;
+use Exception;
 use Symfony\Component\Yaml\Yaml;
 use Drupal\DrupalExtension\Context\DrupalContext;
 use Behat\MinkExtension;
@@ -96,6 +97,7 @@ class MultilingualContext extends RawMultilingualContext {
      * in the translations file that is provided within the profile parameters. If it fails to find translation
      * for the requested language it falls back to English. If the string is not defined at all in the translations
      * file there will be an exception thrown.
+     * @throws Exception
      */
 
     public function localizeTarget($target) {
@@ -107,7 +109,9 @@ class MultilingualContext extends RawMultilingualContext {
         elseif (isset($this->translations[$target])) {
             return $target;
         }
-        else throw new \Exception ("The text '$target'' is not defined in '$translations' translation file.");
+        else {
+            throw new Exception ("The text '$target'' is not defined in '$translations' translation file.");
+        }
     }
 
     /**
@@ -227,6 +231,30 @@ class MultilingualContext extends RawMultilingualContext {
     }
 
     /**
+     * Fills in form field with specified css selector with localized value
+     * Example: When I fill in "#username" with localized "bwayne"
+     *
+     * @When /^(?:|I )fill in :field with localized :value$/
+     * @throws Exception
+     */
+    public function fillFieldWithLocalized($field, $value)
+    {
+        $page = $this->getSession()->getPage();
+        try {
+            $localizedValue = $this->localizeTarget($value);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+        $element = $page->find('css', $field);
+        if (is_null($element)) {
+            throw new Exception("Element with css selector $field not found");
+        }
+        $element->setValue($localizedValue);
+
+    }
+
+    /**
      * @Given I click localized :link in the :rowText row
      * @Then I (should )see the localized :link in the :rowText row
      */
@@ -238,20 +266,20 @@ class MultilingualContext extends RawMultilingualContext {
             $link_element->click();
             return;
         }
-        throw new \Exception(sprintf('Found a row containing "%s", but no "%s" link on the page %s', $rowText, $link, $this->getSession()->getCurrentUrl()));
+        throw new Exception(sprintf('Found a row containing "%s", but no "%s" link on the page %s', $rowText, $link, $this->getSession()->getCurrentUrl()));
     }
 
     public function getTableRow(Element $element, $search) {
         $rows = $element->findAll('css', 'tr');
         if (empty($rows)) {
-            throw new \Exception(sprintf('No rows found on the page %s', $this->getSession()->getCurrentUrl()));
+            throw new Exception(sprintf('No rows found on the page %s', $this->getSession()->getCurrentUrl()));
         }
         foreach ($rows as $row) {
             if (strpos($row->getText(), $search) !== FALSE) {
                 return $row;
             }
         }
-        throw new \Exception(sprintf('Failed to find a row containing "%s" on the page %s', $search, $this->getSession()->getCurrentUrl()));
+        throw new Exception(sprintf('Failed to find a row containing "%s" on the page %s', $search, $this->getSession()->getCurrentUrl()));
     }
 
     /**
