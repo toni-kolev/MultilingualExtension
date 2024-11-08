@@ -110,7 +110,8 @@ class MultilingualContext extends RawMultilingualContext {
             return $target;
         }
         else {
-            throw new Exception ("The text '$target'' is not defined in '$translations' translation file.");
+            echo "The text '$target' is not defined in '$translations' translation file. Using the text as it is.";
+            return $target;
         }
     }
 
