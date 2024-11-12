@@ -63,7 +63,7 @@ class MultilingualContext extends RawMultilingualContext {
 
     //This function parses the languages_iso_codes.json file to an array.
     public function parseLanguageCodes() {
-        $languages_iso_codes_string = file_get_contents("vendor/kolev/multilingual-extension/src/Resources/languages_iso_codes.json");
+        $languages_iso_codes_string = file_get_contents(__DIR__ . "/../Resources/languages_iso_codes.json");
         $this->languages_iso_codes = json_decode($languages_iso_codes_string, true);
     }
 
